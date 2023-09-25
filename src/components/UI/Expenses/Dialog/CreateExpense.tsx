@@ -8,13 +8,6 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { CreateExpensePayload } from 'expense-app'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react';
-
-
-
-
-
-
 
 export const CreateExpenseModal: React.FunctionComponent = () => {
   const defaultValues: CreateExpensePayload = { title: '', total_money: 0 }
@@ -28,38 +21,16 @@ export const CreateExpenseModal: React.FunctionComponent = () => {
   })
 
   const onSubmit = async (args: CreateExpensePayload) => {
-    const { title, total_money, category, due_date } = args;
-    await createExpense({ title, total_money, category, due_date }, user?.id as string);
-    await refreshExpense();
-  
-    closeModal();
-    rhf.reset();
-  };
-  
-  
+    await createExpense(args, user?.id as string)
+    await refreshExpense()
+
+    closeModal()
+    rhf.reset()
+  }
 
   useEffect(() => {
     if (isOpen) rhf.reset()
   }, [isOpen])
-
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [showDueDateInput, setShowDueDateInput] = useState(false);
-
-
-  const expenseCategories = [
-    'Food',
-    'Transportation',
-    'Housing',
-    'Entertainment',
-    'Bills',
-    // Add more categories as needed
-  ];
-  
-
-
-
-
-
 
   return (
     <Modal show={isOpen} onClose={closeModal} title='Create expense' className={twclsx('max-w-lg')}>
@@ -88,38 +59,6 @@ export const CreateExpenseModal: React.FunctionComponent = () => {
             <InputError msg={rhf.formState.errors.title.message} />
           )}
         </div>
-        
-        <div className='inline-flex flex-col gap-2.5'>
-  <label htmlFor='category'>Expense Category</label>
-  <select
-  id='category'
-  value={selectedCategory}
-  onChange={(e) => {
-    setSelectedCategory(e.target.value);
-    setShowDueDateInput(e.target.value === 'Bills');
-  }}
->
-  <option value=''>Select a category...</option>
-  {expenseCategories.map((category, index) => (
-    <option key={index} value={category}>
-      {category}
-    </option>
-  ))}
-</select>
-
-</div>
-
-{showDueDateInput && (
-  <div className='inline-flex flex-col gap-2.5'>
-    <label htmlFor='due_date'>Due Date</label>
-    <input
-      type='date'
-      id='due_date'
-      // Add any necessary attributes and event handlers
-    />
-  </div>
-)}
-
 
         <div className='inline-flex flex-col gap-2.5'>
           <label htmlFor='total_money'>Amount money💸</label>
