@@ -1,71 +1,50 @@
-# <p align="center">**ExpenseApp💰**</p>
+# Expense Tracker App: Overview
 
-ExpenseApp is an app to see you expense history, income history and help you notes what you're buying lately💰
+## Deployment
+This app is being deployed using Netlify  
+Link to app: https://expense-tracker-react-ts-app.netlify.app
 
-> I built this only on weekend and sometimes at night to spend my **lonely** time as a Frontend Developer
+## Motivation Behind Project 
+As a university student it is very important to be able to keep track of where I am spending my money. Many of the expense tracking websites and apps
+either lack functionality or in design.  
+I decided to create an expense tracking app that has both the functionality and the design.  
+This project was also a great chance for me to learn the Mantine UI library.
 
-## What's For
+## Resources and Technologies used
+Technologies: ReactJS, React Router, React Icons, TypeScript, Mantine UI, HTML canvas API, Local Storage, and ViteJS.  
+React Docs Beta: https://beta.reactjs.org/  
+React Router Docs: https://reactrouter.com/en/main  
+React Icons Website: https://react-icons.github.io/react-icons  
+Mantine UI Docs: https://mantine.dev/pages/getting-started/  
+Canvas API Docs: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API  
 
-This app is an implementation of React with Supabase, simply have Authentication and CRUD operation.
+## Quick Description of app
+<ul>
+<li>This app includes the common expense tracking features such as a total budget and expenses counter as well as transaction history.   </li>
+<li>The user is able to reset both budget and expenses amount as well as delete a transaction. After a transaction is deleted the effect it had on the budget / expenses is undone.  </li>
+<li>Clicking on a transaction reveals more information about it as well as giving the user the ability to delete the transaction.  </li>
+<li>The app also includes the ability to categorize expenses. The user can pick out of 3 pre-existing categories or create their own.  </li>
+<li>The user is also able to view their Budget and Expenses in a pie chart to easily visualize their financial state.  </li>
+<li>The user is also able to select either a dark or light theme for their app.  </li>
+<li>All user's data is stored in their browser's local storage.  </li>
+</ul>
 
-### Stack
+## What I Learned
+<ul>
+<li>I advanced my knowledge of types and type safety in TypeScript and became more familair with the langauge.  </li>
+<li>I learned more about React hooks, mainly the useContext hook and how it can be very useful when state is passed down multiple components.  </li>
+<li>I learned how to use Mantine UI library and the components and hooks it provides.  </li>
+<li>I learned about HMLT canvas API and how to use it to draw a simple pie chart.  </li>
+<li>I learned how to use some external React libraries such as react router and react icons.  </li>
+<li>I learned how to use ViteJS to create a React project that uses TypeScript as an alternative to using create-react-app and manually integrating TypeScript.  </li>
+<li>I became more familar with inline CSS styling in React componenets.  </li>
+<li>I became more familair with JavaScript and its built in methods for arrays such as forEach, map, filter and reduce.  </li>
+</ul>
 
-- Vite ⚡
-- React ⚛️
-- Supabase 🔥
-- TailwindCSS 💨
-- Miscellaneous 🔌
-  - Framer Motion 🎞️
-  - Jotai 👻
-  - Headless UI 🔋
-  - React Hot Toast 🔔
-  - React Hook Form 📃
-
-### Todos
-
-- [x] Signin
-- [x] Signup
-- [x] Signout
-- [x] Read Expense
-- [x] Write Expense
-- [x] Update Expense
-- [x] Delete Expense
-- [x] Read Expense History
-- [x] Write Expense History
-- [x] Delete Expense History
-- [x] Update Expense History
-- [x] Update User Profile Picture
-- [x] Update User Username
-- [x] Update User Email
-- [x] Update User Password
-- [x] Forgot Password
-- [x] oAuth with Google and GitHub
-
-## Develop on your local machine
-
-1. Register to [Supabase](https://supabase.com)
-2. Get your projects' **Anon Key** and your Supabase project **URL**
-3. Paste it on `.env.file`
-4. Create table `expense`, with 6 columns:
-   1. `id` `(uuid)` default value: `uuid_generate_v4()` as **primary key**
-   2. `user_id` `(uuid)` **relation with `user.id`**
-   3. `history_id` `(uuid)` mark as `unique`
-   4. `created_at` `(timestamptz)` default value: `now()` mark as `allow nullable`
-   5. `title` `(text)`
-   6. `total_money` `(int4)`
-5. Create table `history`, with 6 columns:
-   1. `id` `(uuid)` default value: `uuid_generate_v4()` as **primary key**
-   2. `user_id` (uuid) **relation with user.id**
-   3. `expense_id` `(uuid)` **relation with `history.history_id`**
-   4. `created_at` `(timestamptz)` default value: `now()` mark as `allow nullable`
-   5. `source` `(text)`
-   6. `type` `(text)` this actually should be 2(income, and outcome), default value: `income`
-   7. `amount` `(int4)`
-6. Create bucket `profiles` for profile picture
-7. Inside `profiles` bucket, create folder `avatar`
-8. Create **policies** for tables and bucket
-   1. soon..
-
-## Contribution
-
-PR's are always open
+## Steps going forward
+<ul>
+<li>I plan to learn how to use Redux for state management.  </li>
+<li>I plan to experience with other UI libraries such as Material UI and Chakara UI.  </li>
+<li>I plan to make this app mobile responsive throught CSS media queries or using TailwindCSS  </li>
+<li>I plan to learn how to add a backend to the expense tracker app and use a database (most likely MongoDB) to store the data instead of local storage.  </li>
+</ul>
